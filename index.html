@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <title>Timplets</title>
+   <!--Links -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<!-- Firestore -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <!--Supabase-->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<!-- Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+
+<!-- Custom Styles -->
+ <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Yeseva+One&display=swap" rel="stylesheet">
+  
+</head>
+
+<body>
+  
+  <header class="head">Timplets</header>
+  
+  
+
+  
+  
+  
+  
+  
+   <!--pages-->
+  <main id="app">
+  
+    
+  
+  <section id="flashcards" class="page active">
+    
+    
+    
+   <div id="video-container" class="Container-design ">
+     
+     
+     
+  
+     
+     
+     
+     <button id="template" class="template-preview">
+       <img src="Assets/Live-Video--Streamline-Core-Neon.svg">
+     </button>
+     
+     
+   </div>
+   
+   
+   
+   
+
+    <div id="commentModal" class="comment-modal hidden">
+
+  <div class="comment-backdrop"></div>
+
+  <div class="comment-sheet">
+
+    <div class="comment-header">
+      <span>Comments</span>
+      <button id="closeComment">✕</button>
+    </div>
+    
+     <div class="comment-input-area">
+      <input type="text" id="commentInput" placeholder="Write a comment..." />
+      <button id="sendComment">Post</button>
+    </div>
+
+  <div id="commentList" class="comment-list"></div>
+
+   
+
+  </div>
+</div>
+   
+ 
+    
+    
+    
+    
+  </section>
+  
+  
+  
+  <!--User-profile-->
+  <section id="profile" class="page">
+
+  <div class="profile-header">
+    <div class="Profile-Wrap">
+    <button id="exitProfileBtn" class="exit-profile"><i class="ri-arrow-left-long-fill"></i></button>
+    
+    <button id="editProfileBtn" class="edit-profile">Edit profile</button>
+    
+    </div>
+    
+    <img id="profileAvatar" class="profile-avatar">
+    <div class="text-Wrapper">
+    <h3 id="profileUsername"></h3>
+    <h3 id="User-Bio"></h3>
+    </div>
+    <div class="Follow-Wrapper">
+  <button class="follow-design" id="follow-btn">
+    Follow
+  </button>
+  </div>
+  </div>
+  
+  <div class="User-Info">
+
+  <div class="info-box">
+    <span id="postCount">0</span>
+    <small>Posts</small>
+  </div>
+
+  <div class="info-box">
+    <span id="viewCount">0</span>
+    <small>Views</small>
+  </div>
+
+  <div class="info-box">
+    <span id="followerCount">0</span>
+    <small>Followers</small>
+  </div>
+  
+  
+
+
+</div>
+
+
+
+  <div id="profileVideo-cnt">
+    
+    
+  <div id="profileVideo">
+  </div>
+   
+  </div>
+
+</section>
+
+
+
+  <!--Edit-Profile-->
+<section id="edit-profile" class="page">
+
+  <div class="edit-header">
+  <button id="exitEditProfile"><i class="ri-arrow-left-long-fill"></i></button>
+    <h><i class="ri-settings-5-line"></i></h>
+  </div>
+
+  <div class="edit-body">
+
+    <img id="editAvatarPreview" class="edit-avatar">
+
+    <input type="file" id="avatarInput" accept="image/*" hidden>
+    <button id="changeAvatarBtn" class="changeAvatar">Change avatar</button>
+
+    <input id="editUsername" placeholder="Username">
+    <textarea id="editBio" placeholder="Bio"></textarea>
+
+    <button id="saveProfileBtn">Save</button>
+
+  </div>
+
+</section>
+  
+  
+  
+  <!--Voice-->
+ <section id="voice" class="page">
+   
+   <button id="create-room">create  room</button>
+
+
+   <div  id="input-container"  class="hidden">
+
+   <div class="design">
+     <h>Create voicecard</h>
+     <input  id="data" type="text" placeholder="Write Caption..."
+     maxlength="30">
+        <button id="Confirm-btn" class="confirm-btn">
+  <span class="btn-text">Confirm</span>
+       <div id="loader" class="hidden">Creating...</div>
+  
+</button>
+     </div>
+   </div>
+   
+   
+   
+  <div id="voice-card"></div>
+  </section>
+  
+  
+  
+  
+  <!--home-->
+ <section id="home" class="page">
+<div id="Home-ui" class="Home-ui-design">
+     </div>
+  
+
+    
+  </section>
+  
+</main>
+
+
+    <!--Upload-Section-->
+ <section id="upload-section">
+
+  <div class="upload-header">
+    <button id="closeUploadBtn">✕</button>
+    <h3>Post</h3>
+    <button id="confirmUploadBtn" class="Share-btn">
+      Share
+    </button>
+  </div>
+  
+  <div class="Media-body">
+    
+    <div class="previewVideo-class">
+    <video id="previewVideo" controls ></video>
+    </div>
+
+  </div>
+
+  <div class="upload-body">
+
+    <input type="file" id="videoInput" accept="video/*" hidden>
+
+    <button id="selectVideoBtn" class="select-upload">
+      Tap to Upload
+    </button>
+
+    
+    <textarea 
+      id="captionInput" 
+      placeholder="Write a caption..."
+    ></textarea>
+
+    
+
+  </div>
+
+</section>
+
+
+     <!--roomUI-->
+  <section id="roomUI" class="room hidden">
+  
+    <div class="UI-container">
+    
+    <div class="stage">
+        
+      
+   <div class="host-container">
+  <div class="host"><div class="avatar" data-slot="0"></div></div>
+  <div class="co-host"><div class="avatar" data-slot="1"></div></div>
+  <div class="co-host"><div class="avatar" data-slot="2"></div></div>
+</div>
+
+<div class="co-hosts">
+  <div class="co-host"><div class="avatar" data-slot="3"></div></div>
+  <div class="co-host"><div class="avatar" data-slot="4"></div></div>
+  <div class="co-host"><div class="avatar" data-slot="5"></div></div>
+</div>
+      
+    <div class="UI-ctrl-cont">
+      
+      
+       <button id="raiseHandBtn" class="raise-btn hidden">✋</button>
+      
+      
+      
+      <button id="requestBtn" class="">📩</button>
+      
+    
+      
+       <button class="mic-btn muted" id="micBtn">
+  <i class="ri-mic-off-line" id="micIcon"></i>
+   </button>
+
+      <button class="exit" id="close"><i class="ri-file-close-line"></i>
+         </button>
+      </div>
+    </div>
+    
+         <div id="requestPanel" class="request-panel hidden"></div>
+    
+  <div id="room-messages" class="messages-css">
+    
+  
+   
+
+    
+    
+  </div>
+  
+
+  </div>
+  
+</section>
+
+
+
+
+
+   <!--profile-Dashboard-->
+<section id="dashboard" class="dashboard hidden">
+  
+  <div id="dashboard-info">
+    
+    
+     
+
+
+  
+
+  
+ </div>
+  
+  
+  <div id="User-post" class="User-post-design">
+    <div id="postGrid"></div>
+  </div>
+  
+  </div>
+  
+</section>
+    
+    
+    
+    
+    
+    
+   <!--Navigation-->
+<nav class="nav-container">
+  
+  <button data-target="flashcards" class="active-btn">
+    <img src="Assets/Business-Card--Streamline-Core-Neon (1).svg">
+  </button>
+  
+  <button data-target="voice" class="active-btn">
+    <img src="Assets/Voice-Scan-2--Streamline-Flex-Neon.svg">
+  </button>
+  
+  <button data-target="home" class="profile">
+    <img src="Assets/User-Profile-Focus--Streamline-Core-Neon.svg">
+  </button>
+  
+</nav>
+
+
+
+
+
+ <!--Aogra-->
+<script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+
+
+
+  <!--script-->
+  <script type="module" 
+  src="./js/app.js"></script>
+</body>
+</html>
+
+
+
+
+
