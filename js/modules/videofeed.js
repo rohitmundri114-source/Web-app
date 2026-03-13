@@ -1,6 +1,6 @@
-import { Cache,Id } from "./state.js";
-import { openProfile } from "./modules/profile.js";
-import { supabaseClient } from "./services/supabase.js";
+import { Cache, Id } from "../state.js";
+import { openProfile } from "./profile.js";
+import { supabaseClient } from "../services/supabase.js";
 
 console.log("videofeed loaded");
 
@@ -10,7 +10,8 @@ console.log("videofeed loaded");
                    
 //const DEV_STOP_FEED = true;
 
-const CURRENT_USER_ID = Id.CURRENT_USER_ID;
+const CURRENT_USER_ID = 
+Id.CURRENT_USER_ID;
 
 const Videocontainer = document.getElementById("video-container");
 
@@ -857,7 +858,8 @@ confirmUploadBtn.addEventListener("click", async () => {
     const { error: insertError } = await supabaseClient
       .from("video_posts")
       .insert({
-       user_id : Id. CURRENT_USER_ID,
+       user_id : 
+       Id.CURRENT_USER_ID,
         video_url: videoUrl,
         caption: captionInput.value
       });

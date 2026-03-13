@@ -1,8 +1,8 @@
-import { Id, Voice } from "./state.js";
-import { openProfile } from "./modules/profile.js";
-import { Joinvoicechannel,leaveVoicechannel, updateMicUI} from "./services/agora.js";
+import { Id, Voice } from "../state.js";
+import { openProfile } from "./profile.js";
+import { Joinvoicechannel, leaveVoicechannel, updateMicUI } from "../services/agora.js";
 import { db } from "../services/firebase.js";
-import { supabaseClient } from "./services/supabase.js";
+import { supabaseClient } from "../services/supabase.js";
 
 
 const CURRENT_USER_ID = Id.CURRENT_USER_ID;
