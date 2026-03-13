@@ -1,6 +1,6 @@
 import { Cache,Id } from "./state.js";
-import { openProfile } from "../profile.js";
-import { supabaseClient } from "../services/supabase.js";
+import { openProfile } from "./modules/profile.js";
+import { supabaseClient } from "./services/supabase.js";
 
 console.log("videofeed loaded");
 

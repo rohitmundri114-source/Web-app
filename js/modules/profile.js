@@ -1,6 +1,6 @@
  import { navigate } from "./router.js";
  import { Cache,Id } from "./state.js";
- import { supabaseClient } from "../services/supabase.js";
+ import { supabaseClient } from "./services/supabase.js";
 
 
   const flashcards = document.getElementById("flashcards");
