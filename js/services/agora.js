@@ -1,7 +1,7 @@
 import { Id,Voice } from "../state.js";
 
 const APP_ID =
-"c0aaefec9bad469eaa9f3d5562bf8dc0" ;
+"c0aaefec9bad469eaa9f3d5562bf8dc0";
 
 
 let client = null;

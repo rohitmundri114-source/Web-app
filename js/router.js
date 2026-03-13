@@ -1,5 +1,5 @@
 import { AppState,Id } from "./state.js";
-import { openProfile, openEditProfile } from "./modules/profile.js";
+import { openProfile, openEditProfile } from "../modules/profile.js";
 
 const CURRENT_USER_ID = Id.CURRENT_USER_ID;
 

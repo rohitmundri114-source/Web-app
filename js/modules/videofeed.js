@@ -1,6 +1,6 @@
-import { Cache,Id } from "../state.js";
-import { openProfile } from "./profile.js";
-import { supabaseClient } from "./services/supabase.js";
+import { Cache,Id } from "./state.js";
+import { openProfile } from "../profile.js";
+import { supabaseClient } from "../services/supabase.js";
 
 console.log("videofeed loaded");
 
@@ -8,7 +8,7 @@ console.log("videofeed loaded");
        Video-feed         
                    *****/
                    
-const DEV_STOP_FEED = true;
+//const DEV_STOP_FEED = true;
 
 const CURRENT_USER_ID = Id.CURRENT_USER_ID;
 
@@ -95,7 +95,7 @@ async function recordView(videoId) {
   sentinel = document.createElement("div");
   sentinel.id = "scroll-sentinel";
   sentinel.style.height = "1px";
-  if (!Videocontainer){
+  if (Videocontainer){
   Videocontainer.appendChild(sentinel);}
 }
 
